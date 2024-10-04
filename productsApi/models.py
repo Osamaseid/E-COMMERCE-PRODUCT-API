@@ -8,6 +8,7 @@ class Category(models. Model):
 
 # User Schema
 class User(AbstractUser):
+    email = models.EmailField(unique=True) 
     is_buyer = models.BooleanField(default=False)
     is_seller = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -41,7 +42,7 @@ class Product(models.Model):
    
 # Review Schema
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    #user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     rating = models.IntegerField()
     comment = models.TextField(blank=True, null=True)
@@ -56,7 +57,7 @@ class Order (models.Model):
         ('cancelled', 'Cancelled')
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    #user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='pending')
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -1,29 +1,30 @@
 from django.urls import path
-from . import views
+from .views import (
+    UserRegisterView, UserLoginView, UserDetailView,
+    CategoryListCreateView, CategoryDetailView,
+    ProductListCreateView, ProductDetailView,
+    ReviewListCreateView, ReviewDetailView,
+    OrderListCreateView, OrderDetailView,
+    OrderItemListCreateView, OrderItemDetailView
+)
 
 urlpatterns = [
-    # Category URLs
-    path('categories/', views.getCategories, name='get_categories'),
-    path('categories/<int:pk>/', views.categoryDetail, name='category_detail'),
-    path('categories/create/', views.createCategory, name='create_category'),
+    path('register/', UserRegisterView.as_view(), name='register'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('user/', UserDetailView.as_view(), name='user-detail'),
 
-    # Product URLs
-    path('products/', views.getProducts, name='get_products'),
-    path('products/<int:pk>/', views.productDetail, name='product_detail'),
-    path('products/create/', views.createProduct, name='create_product'),
+    path('categories/', CategoryListCreateView.as_view(), name='category-list'),
+    path('categories/<int:pk>/', CategoryDetailView.as_view(), name='category-detail'),
 
-    # Review URLs
-    path('reviews/', views.getReviews, name='get_reviews'),
-    path('reviews/<int:pk>/', views.reviewDetail, name='review_detail'),
-    path('reviews/create/', views.createReview, name='create_review'),
+    path('products/', ProductListCreateView.as_view(), name='product-list'),
+    path('products/<int:pk>/', ProductDetailView.as_view(), name='product-detail'),
 
-    # Order URLs
-    path('orders/', views.getOrders, name='get_orders'),
-    path('orders/<int:pk>/', views.orderDetail, name='order_detail'),
-    path('orders/create/', views.createOrder, name='create_order'),
+    path('reviews/', ReviewListCreateView.as_view(), name='review-list'),
+    path('reviews/<int:pk>/', ReviewDetailView.as_view(), name='review-detail'),
 
-    # User URLs
-    path('users/', views.getUsers, name='get_users'),
-    path('users/<int:pk>/', views.userDetail, name='user_detail'),
-    path('users/create/', views.createUser, name='create_user'),
+    path('orders/', OrderListCreateView.as_view(), name='order-list'),
+    path('orders/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
+
+    path('order-items/', OrderItemListCreateView.as_view(), name='orderitem-list'),
+    path('order-items/<int:pk>/', OrderItemDetailView.as_view(), name='orderitem-detail'),
 ]
