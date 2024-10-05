@@ -9,7 +9,7 @@
       "server": "localhost",
       "port": 3306,
       "driver": "MySQL",
-      "name": "ecommerce",
+      "name": "ecommerce2",
       "database": "ecommerce",
       "username": "root"
     }
