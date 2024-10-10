@@ -89,17 +89,6 @@ WSGI_APPLICATION = 'Eommerce.wsgi.application'
 
 
 
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.mysql',  # 
-   #     'NAME': 'ecommerce',           #
-    #    'USER': 'root',                
-     #   'PASSWORD': '0924475152@os',          
-      #  'HOST': 'localhost',                    
-       # 'PORT': '3306',                         
-    #}
-#}
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
