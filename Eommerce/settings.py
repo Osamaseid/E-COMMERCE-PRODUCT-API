@@ -90,7 +90,6 @@ WSGI_APPLICATION = 'Eommerce.wsgi.application'
 
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
